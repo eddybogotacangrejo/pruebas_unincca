@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content=“eddy bogota”>
+    <meta name="description" content=“EXAMEN PRIMER CORTE ELECTIVA PROFUNDIZACION I“>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <title>PRIMER CORTE ELECTIVA PROFUNDIZACION I</title>
+    <style>
+        body{background-color: #264673; box-sizing: border-box; font-family: Arial;}
+        form {
+            background-color: white;
+            padding: 10px;
+            margin: 100px auto;
+            width: 450px;
+        } 
+        input[type=text], input[type=number], input[type=email]{
+        padding: 10px;
+        width: 380px;
+        }
+        input[type="submit"]{
+         border: 0;
+         background-color: #ED8824;
+         padding: 10px 20px;
+        }
+    </style>       
+  </head>
+  <body>
+    <h1>VALIDAR DATOS DEL EMPLEADO</h1>
+  <form action="">
+    <legend>VALIDACION DE CAMPOS FORMULARIO ELECTIVA COMPLEMENTARIA PRIMER CORTE</legend>
+    <p>
+    <label for="codigoempleado">Codigo del empleado:</label>
+    <input type="text" name="codigo_empleado" id="codigo_empleado" placeholder="Ej: C804037" 
+     autofocus required pattern="[0-9]{5}">
+    </p>
+    <p>
+    <label for="nombreempleado">Nombre del empleado:</label>
+    <input type="text" name="nombre_empleado" id="nombre_empleado" placeholder="Ej: eddy" 
+    autofocus required>
+    </p>
+    <p>
+    <label for="apellidoempleado">Apellido del empleado:</label>
+    <input type="text" name="apellido_empleado" id="apellido_empleado" placeholder="Ej: bogota" 
+      autofocus required>
+    </p>
+    <p>
+    <label for="celular">celular:</label>
+    <input type="number"  name="celular" id="celular" placeholder="Ej: 3004817713" 
+    required pattern="[0-9]{10}">
+    </p>      
+    <p>
+    <label for="email">Email:</label>
+    <input type="email"  name="email" id="email" placeholder="Ej: nombre@gmail.com" required>
+    </p>
+    <p>
+    <input type="submit" value="VALIDAR" onclick="return VALIDAR(this.form)">
+    </p>
+</form>>
+<script>
+ function VALIDAR(formulario) {   
+ tiene_minusculas_nombre(formulario.nombre_empleado.value);   
+ tiene_minusculas_apellido(formulario.apellido_empleado.value);  
+ var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(formulario.email.value)) {
+      alert("Email inválido, no contiene la estructura correcta");
+      return false;
+    }
+ valida_celular(formulario.celular.value);
+ function tiene_minusculas_nombre(texto){
+    var letrasminusculas="abcdefghyjklmnñopqrstuvwxyzóíéáú0123456789";  
+    for(i=0; i<texto.length; i++){
+       if (letrasminusculas.indexOf(texto.charAt(i),0)!=-1){
+        alert("campo nombre con minusculas, caracteres acentuados o numeros");
+        i = texto.length;
+        return false;
+       }
+    }
+ }
+ function tiene_minusculas_apellido(texto){
+    var letrasminusculas="abcdefghyjklmnñopqrstuvwxyzóíéáú0123456789";  
+    for(i=0; i<texto.length; i++){
+       if (letrasminusculas.indexOf(texto.charAt(i),0)!=-1){
+        alert("campo apellido con minusculas, caracteres acentuados o numeros");
+        i = texto.length;
+        return false;
+       }
+    }
+ }
+ function valida_celular(texto){
+         console.log(texto[0]);
+         console.log(texto[1]);
+         if(texto[0] != '3'){
+            alert("el primer numero de celuar debe ser 3"); 
+            return false;
+         }
+         if(texto[1] != '0' && texto[1] != '1' && texto[1] != '2' && texto[1] != '5'){
+            alert("el segundo numero de celular debe ser 0 o 1 o 2 o 3 o 5"); 
+            return false;
+         }
+    }  
+ }
+</script>
+  </body>
+</html>

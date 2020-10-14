@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>   
+ <head>
+  <meta charset="utf-8">
+  <title>suma de matrices</title>
+   <script >
+      //declarando matrices
+      var numA = [
+        [7,5,4],
+        [2,4,6],
+        [3,2,1],
+      ];
+
+      var numB = [
+        [2,3,4],
+        [2,5,6],
+        [1,1,1],
+      ];
+
+      var numC = [
+        [0,0,0],
+        [0,0,0],
+        [0,0,0],
+      ];
+      /*document.write(num[0][0]+"<br>");
+      document.write(num[0][1]+"<br>");
+      document.write(num[0][2]+"<br>");
+      document.write(num[1][0]+"<br>");
+      document.write(num[1][1]+"<br>");
+      document.write(num[1][2]+"<br>");
+      document.write(num[2][0]+"<br>");
+      document.write(num[2][1]+"<br>");
+      document.write(num[2][2]+"<br>");*/
+
+      for (var i=0; i < numA.length; i++){
+          document.write("<br>");
+          for (var j = 0; j < numA[i].length;  j++) {
+              document.write(numA[i][j]+" ");
+          }
+      }   
+
+      document.write("<br>");
+      for (var i=0; i < numB.length; i++){
+          document.write("<br>");
+          for (var j = 0; j < numB[i].length;  j++) {
+              document.write(numB[i][j]+" ");
+          }
+      }
+
+      document.write("<br>");
+      for (var i=0; i < numA.length; i++){
+          document.write("<br>");
+          for (var j = 0; j < numA[i].length;  j++) {
+              numC[i][j]=numA[i][j]+numB[i][j];
+              document.write(numC[i][j]+" ");
+          }
+      }       
